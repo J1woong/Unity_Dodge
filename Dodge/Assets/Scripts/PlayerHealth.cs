@@ -85,9 +85,17 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    void UpdateLivesUI()
+    public void Heal()
     {
-        // (지금은 안 쓰고 있지만 나중에 텍스트로 목숨 표시할 때 쓰일 수도 있음)
+        if (currentLives < maxLives)
+        {
+            currentLives++;
+            if (healthBarController != null)
+            {
+                healthBarController.UpdateHearts();
+            }
+
+            Debug.Log("Healed! Lives: " + currentLives);
+        }
     }
-    
 }
